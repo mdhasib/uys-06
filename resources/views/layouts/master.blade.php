@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,6 @@
     <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
 --}}
-
 <!--All Css Here-->
 
     <!--Bootstrap Css-->
@@ -89,11 +87,11 @@
                                             <a class="dropdown-item" href="home3.html">home3</a>
                                         </div>
                                     </li>--}}
-                                    <li class="nav-item active">
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{!! url(('/')) !!}">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{!! url(('clublist')) !!}">clublist</a>
+                                        <a class="nav-link" href="{!! url(('clublists')) !!}">Teams</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link " href="{!! url('fixtures') !!}">fixtures</a>
@@ -102,14 +100,14 @@
                                         <a class="nav-link" href="{!! url('results') !!}">results</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{!! url('point-table') !!}">point table</a>
+                                        <a class="nav-link" href="{!! url('point-tables') !!}">point table</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="index.html" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">sports</a>
+                                        <a class="nav-link dropdown-toggle" href="{!! url('index') !!}" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">sports</a>
                                         <div class="dropdown-menu animation  slideUpIn">
-                                            <a class="dropdown-item" href="sports.html">sports</a>
-                                            <a class="dropdown-item" href="sports2.html">sports 2</a>
-                                            <a class="dropdown-item" href="single-page.html">single page</a>
+                                            <a class="dropdown-item" href="{!! url('sports') !!}">sports</a>
+                                            <a class="dropdown-item" href="{!! url('sports2') !!}">sports 2</a>
+                                            <a class="dropdown-item" href="{!! url('single-page') !!}">single page</a>
                                         </div>
                                     </li>
                                     <li class="nav-item ">
@@ -136,8 +134,7 @@
                 <!--row end-->
             </div>
         </div>
-
-    @yield('slide')
+        @yield('slide')
     </header>
     <!--header end-->
 

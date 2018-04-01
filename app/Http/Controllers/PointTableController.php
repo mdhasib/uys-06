@@ -13,7 +13,7 @@ class PointTableController extends Controller
      */
     public function index()
     {
-        //
+        return view('point-tables.point-table');
     }
 
     /**

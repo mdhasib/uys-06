@@ -13,7 +13,7 @@ class ClublistController extends Controller
      */
     public function index()
     {
-        //
+        return view('clublists.clublist');
     }
 
     /**

@@ -16,7 +16,12 @@
 });*/
 
 Route::get('/','DashboardController@index');
-Route::get('/clublist','ClublistController@index');
+Route::get('/clublists','ClublistController@index');
 Route::get('/fixtures','FixturesController@index');
 Route::get('/results','ResultsController@index');
-Route::get('/point-table','PointTableController@index');
+Route::get('/point-tables','PointTableController@index');
+Route::get('/sports','SportsController@index');
+Route::get('/sports2','Sports2Controller@index');
+Route::get('/single-page','SinglePageController@index');
+Route::get('/dashboard','DashboardController@dashboard');
+Route::resource('/group','GroupController');
