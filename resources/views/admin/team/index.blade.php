@@ -5,10 +5,10 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
-                <a href="{!! url('group/create') !!}" class="btn btn-success">Create New Group</a>
+                <a href="{!! url('team/create') !!}" class="btn btn-success">Create New Group</a>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Group List
+                        Team List
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -16,17 +16,21 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
+                                <th>Team Name</th>
+                                <th>continent_name</th>
+                                <th>Group name</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($groups as $group)
+                            @foreach($teams as $data)
                             <tr class="odd gradeX">
-                                <td>{{$group->id}}</td>
-                                <td class="center">{!! $group->group_name !!}</td>
-                                <td class="center"><a href="{!! url('group/'.$group->id.'/edit') !!}" class=" btn btn-warning">Edit</a> |
-                                    {!! Form::open(array('method'=>'DELETE', 'route'=>array('group.destroy',$group->id)))!!}
+                                <td>{{$data->id}}</td>
+                                <td>{{$data->team_name}}</td>
+                                <td>{{$data->continent_name}}</td>
+                                <td class="center">{!! $groups[$data->group_id] !!}</td>
+                                <td class="center"><a href="{!! url('team/'.$data->id.'/edit') !!}" class=" btn btn-warning">Edit</a> |
+                                    {!! Form::open(array('method'=>'DELETE', 'route'=>array('team.destroy',$data->id)))!!}
                                     {!! Form::submit('Delete', array('class'=>'btn btn-danger btn-sm','onclick' => 'return confirm("Are you sure want to Delete?");'))!!}
                                     {!! Form::close()!!}
                                 </td>

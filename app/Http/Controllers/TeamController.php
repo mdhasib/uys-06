@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\Team;
 use Illuminate\Http\Request;
 
-class GroupController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $groups=Group::all();
-        return view('admin.group.index',compact('groups'));
+        $groups=Group::pluck('group_name','id');
+        $teams=Team::all();
+        return view('admin.team.index',compact('teams','groups'));
     }
 
     /**
@@ -25,7 +27,8 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('admin.group.create');
+        $groups=Group::pluck('group_name','id');
+        return view('admin.team.create', compact('groups'));
     }
 
     /**
@@ -36,8 +39,8 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        Group::create($request->all());
-        return redirect('group');
+        Team::create($request->all());
+        return redirect('team');
     }
 
     /**
@@ -59,8 +62,8 @@ class GroupController extends Controller
      */
     public function edit($id)
     {
-        $data=Group::find($id);
-        return view('admin.group.edit', compact('data'));
+        $data=Team::find($id);
+        return view('admin.team.edit', compact('data'));
     }
 
     /**
@@ -72,13 +75,13 @@ class GroupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $group = Group::find($id);
+        $group = Team::find($id);
 
         $group->group_name = $request->group_name;
 
         $group->save();
 
-        return redirect('group');
+        return redirect('team');
     }
 
     /**
@@ -89,8 +92,8 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        Group::whereid($id)->delete();
-        return redirect('group');
+        Team::whereid($id)->delete();
+        return redirect('team');
 
     }
 }

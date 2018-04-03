@@ -25,3 +25,4 @@ Route::get('/sports2','Sports2Controller@index');
 Route::get('/single-page','SinglePageController@index');
 Route::get('/dashboard','DashboardController@dashboard');
 Route::resource('/group','GroupController');
+Route::resource('/team','TeamController');
