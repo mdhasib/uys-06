@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Group;
 use App\Team;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class TeamController extends Controller
 {
@@ -39,7 +40,14 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        Team::create($request->all());
+        $input=$request->all();
+        $img=$request->flag_img_path;
+        $img_target_name=time().$img->getClientOriginalName();
+        $destination=public_path('file_uploads');
+        Image::make($img->getRealPath())->save($destination.'/'.$img_target_name);
+        $input['flag_img_path']=$img_target_name;
+//        dd($input);
+        Team::create($input);
         return redirect('team');
     }
 

@@ -78,103 +78,19 @@
                         </div>
                     </div>
                     <div class="team-box">
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">squad</a>
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">honours</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">photos</a>
-                            <a class="nav-item nav-link" id="nav-jersy-tab" data-toggle="tab" href="#nav-jersy" role="tab" aria-controls="nav-jersy" aria-selected="false">jersy</a>
-                        </div>
                         <div class="tab-content mt40" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/1.jpg" alt="player img">
-                                            <h5 class="mt10">robbie brady</h5>
-                                            <p>midfielder</p>
+                                    @foreach($clubs as $club)
+                                        <div class="col-lg-4 col-md-12">
+                                            <div class="team-mem mb30">
+                                                <img class="full-width" src="{!! asset('file_uploads/'.$club->flag_img_path) !!}" alt="player img">
+                                                <h5 class="mt10">{!! $club->team_name !!}</h5>
+                                                <p>{{$club->continent_name}}</p>
+                                                <p>{!! $groups[$club->group_id] !!}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/2.jpg" alt="player img">
-                                            <h5 class="mt10">Wes Hoolahan</h5>
-                                            <p>forward</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/3.jpg" alt="player img">
-                                            <h5 class="mt10">james mcClean</h5>
-                                            <p>midfielder</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/4.jpg" alt="player img">
-                                            <h5 class="mt10">robbie brady</h5>
-                                            <p>midfielder</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/5.jpg" alt="player img">
-                                            <h5 class="mt10">Wes Hoolahan</h5>
-                                            <p>forward</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/6.jpg" alt="player img">
-                                            <h5 class="mt10">james mcClean</h5>
-                                            <p>midfielder</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/7.jpg" alt="player img">
-                                            <h5 class="mt10">robbie brady</h5>
-                                            <p>midfielder</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/8.jpg" alt="player img">
-                                            <h5 class="mt10">Wes Hoolahan</h5>
-                                            <p>forward</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/9.jpg" alt="player img">
-                                            <h5 class="mt10">james mcClean</h5>
-                                            <p>midfielder</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem">
-                                            <img class="full-width" src="assets/images/club-list/player/10.jpg" alt="player img">
-                                            <h5 class="mt10">Wes Hoolahan</h5>
-                                            <p>forward</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem">
-                                            <img class="full-width" src="assets/images/club-list/player/11.jpg" alt="player img">
-                                            <h5 class="mt10">james mcClean</h5>
-                                            <p>midfielder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/1.jpg" alt="player img">
-                                            <h5 class="mt10">robbie brady</h5>
-                                            <p>midfielder</p>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                     <div class="col-lg-4 col-md-12">
                                         <div class="team-mem mb30">
                                             <img class="full-width" src="assets/images/club-list/player/2.jpg" alt="player img">
@@ -243,124 +159,6 @@
                                             <img class="full-width" src="assets/images/club-list/player/11.jpg" alt="player img">
                                             <h5 class="mt10">james mcClean</h5>
                                             <p>midfielder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/1.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/2.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/3.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/4.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/5.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/6.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/7.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/8.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/9.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem">
-                                            <img class="full-width" src="assets/images/club-list/player/10.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem">
-                                            <img class="full-width" src="assets/images/club-list/player/11.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-jersy" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/1.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/2.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/3.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/4.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/5.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/6.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/7.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/8.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem mb30">
-                                            <img class="full-width" src="assets/images/club-list/player/9.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem">
-                                            <img class="full-width" src="assets/images/club-list/player/10.jpg" alt="player img">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-12">
-                                        <div class="team-mem">
-                                            <img class="full-width" src="assets/images/club-list/player/11.jpg" alt="player img">
                                         </div>
                                     </div>
                                 </div>

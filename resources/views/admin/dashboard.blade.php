@@ -253,7 +253,12 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out fa-fw"></i> {{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -287,6 +292,18 @@
                             </li>
                             <li>
                                 <a href="{!! url('group') !!}">Group Lists</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Teams<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{!! url('team/create') !!}">Add Team</a>
+                            </li>
+                            <li>
+                                <a href="{!! url('team') !!}">Team Lists</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

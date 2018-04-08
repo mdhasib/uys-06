@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Group;
+use App\Team;
+
 
 class ClublistController extends Controller
 {
@@ -13,7 +16,9 @@ class ClublistController extends Controller
      */
     public function index()
     {
-        return view('clublists.clublist');
+        $groups=Group::pluck('group_name','id');
+        $clubs=Team::all();
+        return view('clublists.clublist', compact('groups','clubs'));
     }
 
     /**

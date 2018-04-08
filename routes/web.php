@@ -26,3 +26,7 @@ Route::get('/single-page','SinglePageController@index');
 Route::get('/dashboard','DashboardController@dashboard');
 Route::resource('/group','GroupController');
 Route::resource('/team','TeamController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
